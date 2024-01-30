@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lisa's Valentine's Day Proposal</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fce6e6;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      background-color: #ff80b3;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #ff66a3;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>Hey, You!</h1>
+    <p>I hope you're having an amazing day. Before we move any further, could you please tell me your name?</p>
+    <input type="text" id="nameInput" placeholder="Enter your name ">
+    <button onclick="checkName()">Next</button>
+  </div>
+
+  <script>
+    function checkName() {
+      var nameInput = document.getElementById("nameInput").value.toLowerCase();
+
+      if (nameInput === "lisa" || nameInput === "stephanie" || nameInput === "mitchelle") {
+        displayMessage(nameInput);
+      } else {
+        alert("Oops! You are not the intended audience, brethren!");
+      }
+    }
+
+    function displayMessage(name) {
+      var container = document.getElementById("container");
+      var message = "";
+
+      if (name === "lisa") {
+        message = `I'm so fortunate to have you in my life, Lisa! For a decade, we've shared love and laughter. Thank you for being my rock. This Valentine's Day, I want to officially ask, will you be my Valentine?`;
+      } else if (name === "stephanie") {
+        message = `My dearest half orange, you make every day brighter. A decade sharing everything that we are in its rawest form has been dreamlike to me and i've loved meeting each and every version of you. Anytime I think of you my heart suddenly feels like the color yellow, so warm and filled with joy.You are one of the best people I have ever met in my entire 23 years of life, being with you has made me a better person. I love how authentic you are in everything you do, how kind you continue to be even in the face of adversity and watching you sit in your grace is something that I find ethereal. You are the person I call at 1 am in the morning when I lose myself and at 11 am to share my wins with. You are such an amaing person and you make everyone around you better.I will always say that loving you is such an honor .As Valentine's Day approaches, I would like to ask, if you'd give me the honor and be my Valentine?`;
+      } else if (name === "mitchelle") {
+        message = `My dearest angel, my love for you has only  grown stronger with every passing year and i'm so lucky that i get to experience you. Thank you for being my partner in this beautiful journey and being such an amazing bestfriend and person.Thankyou for teaching me how to be patient, kind and the beauty of existing in peace.Thankyou fr honoring me always and keeping my heart safe . You have always been such a gentle and warm force in my life and i always think that I must be the luckiest girl because of how much you care and love me. Your heart is so pure and kind and I always want to see you smiling and thriving because you deserve all the abundance and goodness that this life has to offer. I hope you know that i appreciate everything that you are to me and I will always aim to do right by you and love you even harder each day. This Valentine's Day I would like to ask if you'd give me the honor and be  my Valentine?`;
+      }
+
+      container.innerHTML = `
+        <h1>Hey ${name}!</h1>
+        <p>${message}</p>
+        <button onclick="response('yes')">Yes</button>
+        <button onclick="response('no')">No</button>
+      `;
+    }
+
+    function response(answer) {
+      var container = document.getElementById("container");
+
+      if (answer === "yes") {
+        container.innerHTML = `<h1>Thank you for allowing me to have you, you gorgeous son of a gun! ❤️</h1>`;
+      } else {
+        container.innerHTML = `<h1>Oh, damn! 😢 Currently crying, throwing up. 💔</h1>`;
+      }
+    }
+  </script>
+</body>
+</html>
